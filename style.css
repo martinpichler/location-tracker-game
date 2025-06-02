@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.8s ease;
+    color: white;
+    overflow: hidden;
+}
+
+/* Setup screen styles */
+.setup-screen {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+.setup-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 100;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.form-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.input-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+#start-game {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    margin-top: 10px;
+}
+
+#start-game:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Default background */
+body.default {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Closer background - red gradient */
+body.closer {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+
+/* Farther background - blue gradient */
+body.farther {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.status-message {
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 100;
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: breathe 3s ease-in-out infinite;
+}
+
+.timer-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer {
+    font-size: 1.8rem;
+    font-weight: 300;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 50px;
+    transition: opacity 0.3s ease;
+}
+
+.loading-spinner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.distance {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-family: 'Courier New', monospace;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .setup-screen {
+        padding: 30px 20px;
+    }
+    
+    .setup-screen h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        gap: 15px;
+    }
+    
+    .timer {
+        font-size: 1.4rem;
+        padding: 6px 12px;
+    }
+    
+    .distance {
+        font-size: 1rem;
+        padding: 5px 12px;
+    }
+    
+    .status-message {
+        font-size: clamp(2rem, 15vw, 6rem);
+    }
+}

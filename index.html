@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>    <div class="setup-screen" id="setup-screen">
+        <h1>GPS Game</h1>        <div class="form-container">
+            <h3>Enter Target Coordinates</h3>
+            <div class="input-group">
+                <label for="maps-link">Google Maps Link (optional):</label>
+                <input type="text" id="maps-link" placeholder="Paste Google Maps link here...">
+                <small>Or enter coordinates manually below:</small>
+            </div>
+            <div class="input-group">
+                <label for="latitude">Latitude:</label>
+                <input type="number" id="latitude" step="any" value="48.208468824332556" placeholder="48.208468824332556">
+            </div>
+            <div class="input-group">
+                <label for="longitude">Longitude:</label>
+                <input type="number" id="longitude" step="any" value="16.373515565637096" placeholder="16.373515565637096">
+            </div>
+            <button id="start-game">Start Game</button>
+        </div>
+    </div>
+    
+    <div class="container" id="game-screen" style="display: none;">
+        <div class="status-message" id="status-message">loading</div>
+        <div class="timer-container">
+            <div class="timer" id="timer">15</div>
+            <div class="loading-spinner" id="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="distance" id="distance">calculating...</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
