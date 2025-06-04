@@ -13,7 +13,7 @@ class GPSGame {
         this.isWaitingForUpdate = false;
         
         // Timer
-        this.timerCount = 15;
+        this.timerCount = 30;
         this.timerInterval = null;
         this.updateInterval = null;
           // DOM elements
@@ -158,10 +158,10 @@ class GPSGame {
         const currentTime = Date.now();
         
         // Only process updates if 15 seconds have passed since last update
-        if (this.lastUpdateTime && (currentTime - this.lastUpdateTime) < 15000) {
+        if (this.lastUpdateTime && (currentTime - this.lastUpdateTime) < 30000) {
             // Update the timer to show time remaining until next actual update
             const timeElapsed = currentTime - this.lastUpdateTime;
-            const timeRemaining = Math.ceil((15000 - timeElapsed) / 1000);
+            const timeRemaining = Math.ceil((30000 - timeElapsed) / 1000);
             this.timerElement.textContent = timeRemaining;
             return;
         }
@@ -201,7 +201,7 @@ class GPSGame {
         console.log(`Distance: ${distance.toFixed(2)}m, Previous: ${this.previousDistance ? this.previousDistance.toFixed(2) : 'N/A'}m`);
         
         // Reset timer to 15 seconds - this will be the actual update moment
-        this.timerCount = 15;
+        this.timerCount = 30;
         this.timerElement.textContent = this.timerCount;
     }
     
@@ -261,7 +261,7 @@ class GPSGame {
             if (this.lastUpdateTime) {
                 const currentTime = Date.now();
                 const timeElapsed = currentTime - this.lastUpdateTime;
-                const timeRemaining = Math.ceil((15000 - timeElapsed) / 1000);
+                const timeRemaining = Math.ceil((30000 - timeElapsed) / 1000);
                 
                 if (timeRemaining > 0) {
                     this.timerElement.textContent = timeRemaining;
@@ -279,7 +279,7 @@ class GPSGame {
                 this.timerElement.textContent = this.timerCount;
                 
                 if (this.timerCount <= 0) {
-                    this.timerCount = 15;
+                    this.timerCount = 30;
                 }
             }
         }, 1000);
